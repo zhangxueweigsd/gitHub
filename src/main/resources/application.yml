@@ -1,0 +1,32 @@
+server:
+  port: 8888
+
+spring:
+  sleuth:
+    sampler:
+      percentage: 1
+  zipkin:
+    enabled: true
+    baseUrl: http://localhost:8866/
+  application:
+    name: gateway-service
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+  cloud:
+    nacos:
+     discovery:
+        server-addr: 127.0.0.1:8848
+     locator:
+        enabled: true
+        lowerCaseServiceId: true
+# 暴露端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
